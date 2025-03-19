@@ -8,9 +8,9 @@ struct node
     struct node *next;
 } *head = NULL, *new = NULL;
 
-int len; // Global length variable
+int len; 
 
-// Function to calculate the length of the linked list
+
 int length() 
 {
     struct node *temp = head;
@@ -23,7 +23,7 @@ int length()
     return count;
 }
 
-// Insert at the beginning
+
 void Begin(int a) 
 {
     new = (struct node*)malloc(sizeof(struct node));
@@ -38,11 +38,10 @@ void Begin(int a)
     else {
         new->next = head;  
         head->prev = new;  
-        head = new;         // Update head to new node
+        head = new;       
     }
 }
 
-// Insert at the end
 void End(int a) 
 {
     struct node *temp = head;
@@ -64,7 +63,7 @@ void End(int a)
     new->prev = temp;
 }
 
-// Insert in the middle
+
 void Middle(int a) 
 {
     struct node *temp;
@@ -104,7 +103,7 @@ void Middle(int a)
     temp->next = new;
 }
 
-// Search for an element
+
 void Search(int key) {
     struct node *temp = head;
     int pos = 1, found = 0;
@@ -129,7 +128,7 @@ void Search(int key) {
     }
 }
 
-// Delete from the beginning
+
 void DBegin() {
     struct node *temp;
     if (head == NULL) {
@@ -147,7 +146,7 @@ void DBegin() {
     free(temp);
 }
 
-// Delete from the middle
+
 void DMid() {
     struct node *temp;
     int loc, i = 1;
@@ -179,7 +178,7 @@ void DMid() {
     } 
     else 
     { 
-        head = temp->next; // If deleting the first node, update head
+        head = temp->next;
     }
 
     if (temp->next != NULL) {
@@ -189,7 +188,7 @@ void DMid() {
     free(temp);
 }
 
-// Delete from the end
+
 void DEnd() {
     struct node *temp = head;
 
@@ -198,7 +197,7 @@ void DEnd() {
         return;
     }
 
-    if (head->next == NULL) { // Only one node in the list
+    if (head->next == NULL) {
         free(head);
         head = NULL;
         printf("Last node deleted, list is now empty.\n");
@@ -209,12 +208,12 @@ void DEnd() {
         temp = temp->next;
     }
 
-    temp->prev->next = NULL; // Second last node becomes last
+    temp->prev->next = NULL; 
     free(temp);
     printf("Last node deleted successfully.\n");
 }
 
-// Display the linked list
+
 void Display() 
 {
     struct node *temp;
