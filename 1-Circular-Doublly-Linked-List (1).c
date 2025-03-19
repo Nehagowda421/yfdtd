@@ -8,7 +8,7 @@ struct node
     struct node *next;
 };
 
-struct node *head = NULL, *tail = NULL, *new=NULL; // Using tail pointer
+struct node *head = NULL, *tail = NULL, *new=NULL; 
 
 int length();
 void Begin(int a);
@@ -21,7 +21,7 @@ void DEnd();
 void Display();
 
 
-// Function to calculate the length of the circular linked list
+
 int length() 
 {
     struct node *temp = head;
@@ -30,7 +30,7 @@ int length()
     if (head == NULL) 
         return 0; // Empty list
 
-    while (temp != tail) // Traverse until the last node
+    while (temp != tail)
     { 
         count++;
         temp = temp->next;
@@ -40,7 +40,7 @@ int length()
     return count;
 }
 
-// Insert at the beginning
+
 void Begin(int a) 
 {
     new = (struct node*)malloc(sizeof(struct node));
@@ -59,17 +59,17 @@ void Begin(int a)
         tail->next = new;
         head->prev = new;
 
-        head = new;  // Update head to new node
+        head = new; 
     }
 }
 
-// Insert at the end
+
 void End(int a) 
 {
     new = (struct node*)malloc(sizeof(struct node));
     new->data = a;
 
-    if (head == NULL) { // First node
+    if (head == NULL) { 
         new->next = new;
         new->prev = new;
         head = tail = new;
@@ -82,11 +82,11 @@ void End(int a)
         tail->next = new;
         head->prev = new;
 
-        tail = new; // Update tail to new node
+        tail = new;
     }
 }
 
-// Insert in the middle
+
 void Middle(int a) 
 {
     struct node *temp;
@@ -124,7 +124,7 @@ void Middle(int a)
     temp->next = new;
 }
 
-// Search for an element
+
 void Search(int key) 
 {
     struct node *temp = head;
@@ -155,7 +155,7 @@ void Search(int key)
     }
 }
 
-// Delete from the beginning
+
 void DBegin() 
 {
     if (head == NULL) {
@@ -166,7 +166,7 @@ void DBegin()
     struct node *temp = head;
 
     if (head == tail) 
-    { // Only one node
+    { 
         free(head);
         head = tail = NULL;
     } 
@@ -179,7 +179,7 @@ void DBegin()
     }
 }
 
-// Delete from the middle
+
 void DMid() 
 {
     struct node *temp;
@@ -200,7 +200,7 @@ void DMid()
     }
 
     if (loc == 1) {
-        DBegin(); // Use DBegin if deleting the first node
+        DBegin(); 
         return;
     }
 
@@ -210,7 +210,7 @@ void DMid()
         i++;
     }
 
-    if (temp == tail) { // If the last node is being deleted, use DEnd()
+    if (temp == tail) {
         DEnd();
         return;
     }
@@ -221,14 +221,14 @@ void DMid()
     free(temp);
 }
 
-// Delete from the end
+
 void DEnd() {
     if (head == NULL) {
         printf("The list is empty, nothing to delete.\n");
         return;
     }
 
-    if (head == tail) { // Only one node
+    if (head == tail) {
         free(head);
         head = tail = NULL;
         printf("Last node deleted, list is now empty.\n");
@@ -246,7 +246,7 @@ void DEnd() {
     printf("Last node deleted successfully.\n");
 }
 
-// Display the linked list
+
 void Display() {
     struct node *temp;
     if (head == NULL) {
@@ -259,12 +259,12 @@ void Display() {
         printf("%d <-> ", temp->data);
         temp = temp->next;
     }
-    printf("%d <-> (Head)\n", temp->data); // Print last node
+    printf("%d <-> (Head)\n", temp->data); 
 
     printf("Total Elements: %d\n", length());
 }
 
-// Main function
+
 int main() {
     int a, ch;
 
