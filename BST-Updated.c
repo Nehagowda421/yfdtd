@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure for a tree node
 struct Node 
 {
     int data;
     struct Node *left, *right;
 };
 
-// Function to create a new node
 struct Node* createNode(int value) 
 {
     struct Node* new;
@@ -19,7 +17,7 @@ struct Node* createNode(int value)
     return new;
 }
 
-// Function to insert a node into the binary tree
+
 struct Node* insertNode(struct Node* root, int value) 
 {
     if (root == NULL) {
@@ -39,7 +37,7 @@ struct Node* insertNode(struct Node* root, int value)
     return root;
 }
 
-// Inorder Traversal (Left, Root, Right)
+
 void inorderTraversal(struct Node* root) 
 {
     if (root != NULL) 
@@ -50,7 +48,6 @@ void inorderTraversal(struct Node* root)
     }
 }
 
-// Preorder Traversal (Root, Left, Right)
 void preorderTraversal(struct Node* root) 
 {
     if (root != NULL) 
@@ -61,7 +58,7 @@ void preorderTraversal(struct Node* root)
     }
 }
 
-// Postorder Traversal (Left, Right, Root)
+
 void postorderTraversal(struct Node* root) {
     if (root != NULL) {
         postorderTraversal(root->left);
@@ -70,7 +67,7 @@ void postorderTraversal(struct Node* root) {
     }
 }
 
-// Main function
+
 int main() 
 {
     struct Node* root = NULL;
