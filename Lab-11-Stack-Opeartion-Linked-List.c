@@ -9,7 +9,7 @@ struct node
 
 void push(int e) 
 {
-    struct node* new = (struct node*)malloc(sizeof(struct node));  // Local variable
+    struct node* new = (struct node*)malloc(sizeof(struct node));  
     if (new == NULL) 
     {
         printf("Stack is Full\n");
